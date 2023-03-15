@@ -1,0 +1,113 @@
+/*Navigation*/
+
+.nav-bar{
+ min-height: 3.5em;   
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ background-color: #282828;
+ box-shadow: inset 12px;
+ position: fixed;
+ left: 0;
+ top: 0;
+ width: 100%;
+ z-index: 100;
+ text-align: center;
+ line-height: 3.5em;
+}
+
+.navigation-list{
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    justify-content:flex-end;
+    margin: 0 15px;
+    height: 100%;
+}
+
+.nav-logo {
+    color: #FFFFFF;
+    display: block;
+    margin-left: 15px;
+    text-align: start;
+    transition: background-color 0.2s ease-in;
+}
+
+.nav-bar a:hover{
+    background-color: #383838;
+    columns: #fff;
+    border-radius: 10px;
+}
+
+.navigation-item a{
+    color: #FFFFFF;
+    padding: 0 10px;
+    display: block;
+}
+
+.navigation-item :hover{
+    background-color: #383838;
+    color:#fff;
+
+}
+
+/* Main*/
+
+main{
+    position: absolute;
+    top: 12rem;
+    left: 0;
+    width: 100vw;
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container{
+    height: 60%;
+}
+
+.main-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    text-align: center;
+    align-items: start;
+    width:65vw;
+    margin-bottom: 20px;
+}
+
+.input-group label{
+    text-align: center;
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#url-input{
+    width:80%;
+    border-radius: 12px;
+    height:56px;
+    padding:17px 20px;
+    font-size: 16px;
+}
+
+.main-form button{
+    display: inline-block;
+    border-radius:12px;
+    border:none;
+    padding:0 15px;
+    width: 180px;
+    height: 48px;
+}
