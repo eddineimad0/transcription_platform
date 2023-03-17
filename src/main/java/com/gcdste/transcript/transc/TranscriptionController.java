@@ -46,6 +46,7 @@ public class TranscriptionController {
         String videoId = url.substring(url.indexOf('=')+1,url.length()).trim();
         String videoPath = PathBuilder.getVideoDirPath() + videoId + ".webm";
         String audioPath = PathBuilder.getAudioDirPath() + videoId + ".wav";
+        String outputPat = PathBuilder.getAudioDirPath() + videoId + ".txt";
 
         AudioExtractor audioEx = new AudioExtractor();
         try{
@@ -54,6 +55,9 @@ public class TranscriptionController {
             System.out.println("[ERROR]: Couldn't extract audio from video,"+error.getMessage());
         }
         //3) Speechmatich api
+
+        SpeechmaticsApi.ToTxt(audioPath,outputPat);
+
         //4) write to file
         //5) respond to user
         return url;
