@@ -4,8 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-src/main/resources/videos/*
-src/main/resources/audios/*
+src/main/resources/videos/*.web
+src/main/resources/audios/*.wav
+src/main/resources/Texts/*.txt
 
 ### STS ###
 .apt_generated

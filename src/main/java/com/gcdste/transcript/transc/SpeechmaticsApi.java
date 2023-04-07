@@ -15,7 +15,7 @@ import org.apache.http.message.BasicHeader;
 import org.apache.http.util.EntityUtils;
 import org.json.*;
 public class SpeechmaticsApi {
-    public static void ToTxt(String audioPath ,String outputPath) {
+    public static boolean ToTxt(String audioPath ,String outputPath) {
         String url = "https://asr.api.speechmatics.com/v2/jobs/";
         String apiKey = "hhJRu39P22yDiT3Q3mjRy4kyhBUe7aWg";
         String requestBody = "{\"type\": \"transcription\",\"transcription_config\": { \"operating_point\":\"enhanced\", \"language\": \"en\" }}";
@@ -79,11 +79,10 @@ public class SpeechmaticsApi {
             fr.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            return false;
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            return false;
         }
-
-
+        return true;
     }
 }

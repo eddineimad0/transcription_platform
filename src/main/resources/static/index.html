@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="global.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">>
-    <title>Transcribe</title>
-</head>
-<body>
+    <script src="./script.js" defer></script>
+    <title>Transcribe Video</title>
+  </head>
+  <body>
     <nav class="nav-bar">
         <a class="nav-logo" href="index.html">TRANSCRIBE ME</a>
         <ul class="navigation-list">
@@ -19,17 +21,21 @@
         </ul>
     </nav>
     <main>
-        <h1>Soyez chez vouss</h1> 
-        <div class="form-container">
-                <form action="/transcribe" class="main-form" method="GET">
-                    <div class="input-group">
-                        <label for="url-input">Target URL:</label>
-                        <input id="url-input" type="url" name="url" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-                    </div>
-                    <button type="submit">Transcribe</button>
-                </form>
+        <span class="loader disabled"></span>
+        <div class="form">
+          <h1>Saisir URL du Video</h1>
+          <form>
+          <label for="video-url">Video URL:</label>
+          <input type="text" id="video-url" name="video-url" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+          <br>
+          <input type="submit" value="Submit">
+          </form>
+        </div>
+        <div id="download-group" class="disabled">
+            <h1>Votre fichier est prét.</h1>
+            <p>Cliquer pour télécharger.</p>
+            <a>Télécharger</a>
         </div>
     </main>
-   <footer>&copy;Vini</footer>
-</body>
+  </body>
 </html>

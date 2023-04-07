@@ -15,4 +15,8 @@ public class PathBuilder {
     public  static String getAudioDirPath(){
         return  buildAbsolutePath("\\src\\main\\resources\\audios\\");
     }
+
+    public  static String getTextDirPath(){
+        return  buildAbsolutePath("\\src\\main\\resources\\Texts\\");
+    }
 }
