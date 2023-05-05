@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+apikey.properties
+
 src/main/resources/videos/*.web
 src/main/resources/audios/*.wav
 src/main/resources/Texts/*.txt
