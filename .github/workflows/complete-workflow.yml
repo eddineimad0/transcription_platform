@@ -17,7 +17,7 @@ jobs:
       with:
         path: ~/.sonar/cache
         key: ${{runner.os}}-sonar
-        restore-key: ${{runner.os}}-sonar
+        restore-keys: ${{runner.os}}-sonar
     - name: ajouter les packages Maven au Cache
       uses: actions/cache@v3
       with:
