@@ -50,7 +50,6 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_API_KEY }}
         with:
           args: --sarif-file-output=snyk.sarif
-          args: --severity-threshold=high
       - name: envoyer les resultats vers Github Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
