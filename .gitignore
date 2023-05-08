@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 
 apikey.properties
+deps/
 
 src/main/resources/videos/*.web
 src/main/resources/audios/*.wav
