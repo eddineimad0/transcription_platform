@@ -1,5 +1,9 @@
 name: Compiler le code, Executer le tests Unitaire, Executer les scans SAST, SCA, DAST.
 on: push
+# branches:
+#   - main
+#   pull_request:
+#     types: [opened,synchronize,reopened]
 jobs:
   # Build Step.
   build:
@@ -7,7 +11,9 @@ jobs:
     name: Executer les tests unitaire et les tests SAST sur le code source.
     steps:
     - uses: actions/checkout@v3
-    - name: Installer JDK 17
+      with:
+        fetch-depth: 0
+    - name: Installer JDK 19
       uses: actions/setup-java@v3
       with:
         java-version: '19'
@@ -25,11 +31,11 @@ jobs:
         path: ~/.m2
         key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
         restore-keys: ${{runner.os}}-m2
-    - name: Compiler avec Maven et Verifier avec SonarCloud
+    - name: Compiler avec Maven et Analyser avec SonarCloud
       env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
-      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=java-project-key_transc
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=eddineimad0_transcription_platform
   # Security
   # security:
   #   runs-on: ubuntu-latest
