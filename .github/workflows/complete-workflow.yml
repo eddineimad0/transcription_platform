@@ -1,6 +1,7 @@
 name: Compiler le code, Executer le tests Unitaire, Executer les scans SAST, SCA, DAST.
 on: push
 jobs:
+  # Build Step.
   build:
     runs-on: ubuntu-latest
     name: Executer les tests unitaire et les tests SAST sur le code source.
@@ -23,18 +24,19 @@ jobs:
       with:
         path: ~/.m2
         key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
-        restore-key: ${{runner.os}}-m2
+        restore-keys: ${{runner.os}}-m2
     - name: Compiler avec Maven et Verifier avec SonarCloud
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=java-project-key_transc
+  # Security
   # security:
   #   runs-on: ubuntu-latest
   #   needs: build
   #   name: Executer les Scan SCA sur le code source
   #   steps:
-  #     - uses: actions/checkout@master
+  #     - uses: actions/checkout@v3
   #     - name: Identifier les vulnerablities avec Snyk
   #       uses: snyk/actions/maven@master
   #       continue-on-error: true
