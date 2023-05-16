@@ -17,7 +17,7 @@ pipeline{
     stage('build'){
       steps{
         sh ''' 
-        ls
+        ls -a
         mvn install
         '''
       }
