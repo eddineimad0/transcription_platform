@@ -18,7 +18,7 @@ pipeline{
       steps{
         sh ''' 
         ls -a
-        mvn install
+        mvn -f /var/lib/jenkins/workspace/TranscriptionApp_CI_CD/pom.xml install
         '''
       }
     }
