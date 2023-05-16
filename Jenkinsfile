@@ -16,6 +16,7 @@ pipeline{
     
     stage('build'){
       steps{
+        sh 'echo $(ls)',
         sh 'mvn clean package'
       }
     }
