@@ -54,15 +54,16 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: snyk.sarif
-  # zap_scan:
-  #   runs-on: ubuntu-latest
-  #   name: Executer les scans DAST sur l'application Web.
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #       with:
-  #         ref: master
-  #       run: mvn
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Executer les scans DAST sur l'application Web.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: master
+      - name: Maven Clean and Compile. 
+        run: mvn clean package
   #     - name: Scan OWASP ZAP
   #       uses: zaproxy/action-baseline@v0.7.0
   #       with:
