@@ -56,20 +56,22 @@ jobs:
   #         sarif_file: snyk.sarif
   zap_scan:
     runs-on: ubuntu-latest
-    name: Executer les scans DAST sur l'application Web.
+    name: Executer les tests unitaire et les tests SAST sur le code source.
     steps:
     - uses: actions/checkout@v3
-        with:
-          ref: fetch-depth: 0
+      with:
+        fetch-depth: 0
     - name: Installer JDK 19
       uses: actions/setup-java@v3
       with:
         java-version: '19'
         distribution: 'temurin' 
         cache: 'maven'
-    - name: Maven Clean and Compile. 
+    - name: Maven Clean and Compile.
       run: mvn clean package
-
+    # - name: Maven Clean and Compile. 
+    #   run: mvn clean package
+    #
   #     - name: Scan OWASP ZAP
   #       uses: zaproxy/action-baseline@v0.7.0
   #       with:
