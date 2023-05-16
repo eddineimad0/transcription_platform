@@ -68,14 +68,11 @@ jobs:
         distribution: 'temurin' 
         cache: 'maven'
     - name: Maven Clean and Compile.
-      run: mvn clean package
-    # - name: Maven Clean and Compile. 
-    #   run: mvn clean package
-    #
-  #     - name: Scan OWASP ZAP
-  #       uses: zaproxy/action-baseline@v0.7.0
-  #       with:
-  #         token: ${{ secrets.GITHUB_TOKEN }}
-  #         target: 'http://localhost:8080'
-  #         rules_file_name: '.zap/rules.tsv'
-  #         cmd_options: '-a'
+      run: mvn clean package & mvn exec:java -D"exec.mainClass"="com.gcdste.transcript.transc.TranscApplication"
+    - name: Scan OWASP ZAP
+      uses: zaproxy/action-baseline@v0.7.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        target: 'http://localhost:8080'
+        rules_file_name: '.zap/rules.tsv'
+        cmd_options: '-a'
