@@ -50,10 +50,10 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --sarif-file-output=snyk.sarif
-      # - name: envoyer les resultats vers Github Code Quality
-      #   uses: github/codeql-action/upload-sarif@v2
-      #   with:
-      #     sarif_file: snyk.sarif
+      - name: envoyer les resultats vers Github Code Quality
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif-file: snyk.sarif
   # zap_scan:
   #   runs-on: ubuntu-latest
   #   name: Executer les scans DAST sur l'application Web.
