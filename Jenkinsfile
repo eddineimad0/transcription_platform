@@ -1,26 +1,30 @@
 pipeline{
   agent any
-  tools{
-    maven 'maven'
-  }
+      tools{
+           maven 'maven'
+        }
  
   stages{
     stage('Initialize'){
       steps{
-        sh'''
+        sh  '''
               echo "PATH=${PATH}"
               echo "M2_HOME=${M2_HOME}"
               '''
             }
-    }
+      }
     
     stage('build'){
       steps{
-        sh ''' 
-        ls -a
-        mvn -f /var/lib/jenkins/workspace/TranscriptionApp_CI_CD/pom.xml install
-        '''
+        sh  ''' 
+            ls -a
+            sh 'mvn clean install'
+            sh 'mvn package'
+       
+             '''
+          }
       }
-    }
+  
   }
+  
 }
