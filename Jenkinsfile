@@ -18,7 +18,7 @@ pipeline{
       steps{
         sh  ''' 
             ls -a
-            sh 'mvn clean install'
+            
             sh 'mvn package'
        
              '''
