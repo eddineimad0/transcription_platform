@@ -71,10 +71,12 @@ pipeline {
         
         success {
             // Ajoutez ici les étapes pour les notifications ou actions spécifiques en cas de succès du pipeline
+            sh "pwd"
         }
         
         failure {
             // Ajoutez ici les étapes pour les notifications ou actions spécifiques en cas d'échec du pipeline
+            sh "pwd"
         }
     }
 }
