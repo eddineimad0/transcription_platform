@@ -5,7 +5,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/eddineimad0/transcription_platform.git'
+                sh 'ls -la'
+                sh 'pwd'
             }
         }
         
