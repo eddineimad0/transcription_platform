@@ -14,7 +14,7 @@
 	<description>Platfrome de transcription.</description>
 
     <properties>
-	    <java.version>19</java.version>
+	    <java.version>17</java.version>
         <sonar.organization>eddineimad0</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
@@ -84,7 +84,7 @@
 
 	</dependencies>
 
-	<build>
+ 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -92,5 +92,8 @@
 			</plugin>
 		</plugins>
 	</build>
+ 
 
+
+	
 </project>
