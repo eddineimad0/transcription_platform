@@ -71,8 +71,15 @@ jobs:
         cache: 'maven'
         
     - name: Maven Clean and Compile.
-      run: mvn clean install
+      run: mvn spring-boot:run &
       
+    - name: Wait for application start
+      run: |
+        until $(curl --output /dev/null --silent --head --fail http://localhost:8080); do
+          echo "Waiting for the local app to start..."
+          sleep 5
+        done
+        
     - name: Scan OWASP ZAP
       uses: zaproxy/action-full-scan@v0.4.0
       with:
