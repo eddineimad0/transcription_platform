@@ -1,8 +1,9 @@
 name: Compiler le code, Executer le tests Unitaire, Executer les scans SAST, SCA, DAST.
-on: push
- branches:
-   - main
-   pull_request:
+on: 
+  push:
+    branches:
+      - main
+    pull_request:
      types: [opened,synchronize,reopened]
 jobs:
   # Build Step.
